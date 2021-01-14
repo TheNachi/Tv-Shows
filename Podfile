@@ -6,7 +6,8 @@ target 'Tv-Shows' do
   use_frameworks!
 
   # Pods for Tv-Shows
-  pod 'Alamofire'
+  pod 'Alamofire', '4.9.0'
+  pod 'EVReflection', :git => 'https://github.com/evermeer/EVReflection.git', :branch => 'master'
 
   target 'Tv-ShowsTests' do
     inherit! :search_paths
