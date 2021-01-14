@@ -70,9 +70,11 @@ extension LoginViewController: LoginDelegate {
         self.correctDisplayAlert(title: "Error", message: "There's a network error, could you wait a few seconds and try again")
     }
     
-    func onLoginSuccessful(response: DataModel) {
+    func onLoginSuccessful(response: LoginDataModel) {
         AccountManager.shared.setToken(with: response)
         self.activityIndicator.stopAnimating()
+        guard let homeVC = StaticBoards.main.instantiateViewController(identifier: VCIDS.homeVC.rawValue) as? HomeViewController else { return }
+        self.present(homeVC, animated: true, completion: nil)
     }
 }
 

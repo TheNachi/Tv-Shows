@@ -8,6 +8,7 @@ target 'Tv-Shows' do
   # Pods for Tv-Shows
   pod 'Alamofire', '4.9.0'
   pod 'EVReflection', :git => 'https://github.com/evermeer/EVReflection.git', :branch => 'master'
+  pod 'IQKeyboardManagerSwift'
 
   target 'Tv-ShowsTests' do
     inherit! :search_paths

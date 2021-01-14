@@ -21,6 +21,11 @@
 		B65A320525AE550A00634427 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A320425AE550A00634427 /* AccountManager.swift */; };
 		B65A320D25AE58CD00634427 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65A320C25AE58CD00634427 /* Main.storyboard */; };
 		B65A321225AE5B4000634427 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A321125AE5B4000634427 /* HomeViewController.swift */; };
+		B65F05A325B08D9F008F0B2B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05A225B08D9F008F0B2B /* Enums.swift */; };
+		B65F05AB25B08E0A008F0B2B /* StaticBoards.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05AA25B08E0A008F0B2B /* StaticBoards.swift */; };
+		B65F05B925B0A28D008F0B2B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05B825B0A28D008F0B2B /* HomeViewModel.swift */; };
+		B65F05C025B0A5E1008F0B2B /* ShowsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05BF25B0A5E1008F0B2B /* ShowsService.swift */; };
+		B65F05C525B0A8A0008F0B2B /* ShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05C425B0A8A0008F0B2B /* ShowsModel.swift */; };
 		B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC5925ADB90C00382EA6 /* BaseApiService.swift */; };
 		B682EC6725ADBCC600382EA6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */; };
 		B682EC6C25ADC05700382EA6 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6B25ADC05700382EA6 /* LoginService.swift */; };
@@ -72,6 +77,11 @@
 		B65A320425AE550A00634427 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		B65A320C25AE58CD00634427 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B65A321125AE5B4000634427 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B65F05A225B08D9F008F0B2B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		B65F05AA25B08E0A008F0B2B /* StaticBoards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticBoards.swift; sourceTree = "<group>"; };
+		B65F05B825B0A28D008F0B2B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B65F05BF25B0A5E1008F0B2B /* ShowsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsService.swift; sourceTree = "<group>"; };
+		B65F05C425B0A8A0008F0B2B /* ShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsModel.swift; sourceTree = "<group>"; };
 		B682EC5925ADB90C00382EA6 /* BaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
 		B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B682EC6B25ADC05700382EA6 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -200,11 +210,38 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		B682EC2A25ADAFF600382EA6 /* Services */ = {
+		B65F05A125B08D58008F0B2B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B65F05A225B08D9F008F0B2B /* Enums.swift */,
+				B65F05AA25B08E0A008F0B2B /* StaticBoards.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B65F05BD25B0A57F008F0B2B /* LoginApi */ = {
 			isa = PBXGroup;
 			children = (
 				B682EC6B25ADC05700382EA6 /* LoginService.swift */,
 				B682EC7525ADCBF800382EA6 /* LoginModel.swift */,
+			);
+			path = LoginApi;
+			sourceTree = "<group>";
+		};
+		B65F05BE25B0A590008F0B2B /* ShowsApi */ = {
+			isa = PBXGroup;
+			children = (
+				B65F05BF25B0A5E1008F0B2B /* ShowsService.swift */,
+				B65F05C425B0A8A0008F0B2B /* ShowsModel.swift */,
+			);
+			path = ShowsApi;
+			sourceTree = "<group>";
+		};
+		B682EC2A25ADAFF600382EA6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B65F05BE25B0A590008F0B2B /* ShowsApi */,
+				B65F05BD25B0A57F008F0B2B /* LoginApi */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -212,6 +249,7 @@
 		B682EC2C25ADB0F500382EA6 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B65F05A125B08D58008F0B2B /* Resources */,
 				B682EC2E25ADB11800382EA6 /* Main */,
 				B682EC2D25ADB10F00382EA6 /* Intro */,
 			);
@@ -234,6 +272,7 @@
 			children = (
 				B65A320C25AE58CD00634427 /* Main.storyboard */,
 				B65A321125AE5B4000634427 /* HomeViewController.swift */,
+				B65F05B825B0A28D008F0B2B /* HomeViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -496,16 +535,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65F05AB25B08E0A008F0B2B /* StaticBoards.swift in Sources */,
 				B618857225ACBCAD0076CBC9 /* LoginViewController.swift in Sources */,
 				B682EC6C25ADC05700382EA6 /* LoginService.swift in Sources */,
+				B65F05B925B0A28D008F0B2B /* HomeViewModel.swift in Sources */,
 				B682EC8925ADD5D100382EA6 /* BaseViewController.swift in Sources */,
 				B682EC6725ADBCC600382EA6 /* BaseViewModel.swift in Sources */,
+				B65F05A325B08D9F008F0B2B /* Enums.swift in Sources */,
 				B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */,
 				B682EC7C25ADCC6500382EA6 /* String+Extensions.swift in Sources */,
+				B65F05C025B0A5E1008F0B2B /* ShowsService.swift in Sources */,
 				B618856E25ACBCAD0076CBC9 /* AppDelegate.swift in Sources */,
 				B682EC7625ADCBF800382EA6 /* LoginModel.swift in Sources */,
 				B682EC7125ADC68700382EA6 /* ApiConfig.swift in Sources */,
 				B682EC8425ADD34A00382EA6 /* LoginViewModel.swift in Sources */,
+				B65F05C525B0A8A0008F0B2B /* ShowsModel.swift in Sources */,
 				B618857025ACBCAD0076CBC9 /* SceneDelegate.swift in Sources */,
 				B65A321225AE5B4000634427 /* HomeViewController.swift in Sources */,
 				B65A320525AE550A00634427 /* AccountManager.swift in Sources */,
