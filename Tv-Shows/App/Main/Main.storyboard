@@ -33,11 +33,11 @@
                                     <action selector="logOutPressed:" destination="8yX-XE-puT" eventType="touchUpInside" id="o5X-DD-kAE"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-yE-67b">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-yE-67b">
                                 <rect key="frame" x="20" y="134" width="374" height="762"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="132" id="hEi-Iy-ZPE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showsTableVC" rowHeight="132" id="hEi-Iy-ZPE" customClass="ShowsTableViewCell" customModule="Tv_Shows" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hEi-Iy-ZPE" id="EoQ-l7-aIY">
@@ -67,6 +67,10 @@
                                                 <constraint firstAttribute="bottom" secondItem="2CR-dj-OhQ" secondAttribute="bottom" constant="2" id="dps-L6-kkk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="showsImageView" destination="2CR-dj-OhQ" id="4RU-OL-baI"/>
+                                            <outlet property="showsTitleLabel" destination="FKT-Wx-QBz" id="br4-Vs-5ne"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

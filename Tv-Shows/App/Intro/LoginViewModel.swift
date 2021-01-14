@@ -9,6 +9,7 @@ import Foundation
 
 class LoginViewModel: BaseViewModel {
     
+    
     init(with data: BaseModel?, apiService: LoginService?) {
         super.init(with: data, apiService: apiService)
     }
@@ -20,7 +21,7 @@ class LoginViewModel: BaseViewModel {
     
     public func loginUser(with loginModel: LoginModel, delegate: LoginDelegate) {
         guard let apiService = self.apiService as? LoginService else { return }
-        apiService.loginUser(with: loginModel, delegate: delegate)
+        apiService.loginUser(with: loginModel, loginDelegate: delegate)
     }
     
     public func emailIsValid(email: String) -> Bool {

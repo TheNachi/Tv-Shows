@@ -16,3 +16,7 @@ enum VCIDS: String {
     case loginVC
     case homeVC
 }
+
+enum CellIds: String {
+    case showsTableVC
+}

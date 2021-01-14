@@ -26,6 +26,9 @@
 		B65F05B925B0A28D008F0B2B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05B825B0A28D008F0B2B /* HomeViewModel.swift */; };
 		B65F05C025B0A5E1008F0B2B /* ShowsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05BF25B0A5E1008F0B2B /* ShowsService.swift */; };
 		B65F05C525B0A8A0008F0B2B /* ShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05C425B0A8A0008F0B2B /* ShowsModel.swift */; };
+		B65F05CB25B0C2FB008F0B2B /* ShowsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05CA25B0C2FB008F0B2B /* ShowsTableViewCell.swift */; };
+		B65F05D025B0C77F008F0B2B /* BaseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05CF25B0C77F008F0B2B /* BaseCellViewModel.swift */; };
+		B65F05D525B0CAA8008F0B2B /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05D425B0CAA8008F0B2B /* UITableView+Extensions.swift */; };
 		B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC5925ADB90C00382EA6 /* BaseApiService.swift */; };
 		B682EC6725ADBCC600382EA6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */; };
 		B682EC6C25ADC05700382EA6 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6B25ADC05700382EA6 /* LoginService.swift */; };
@@ -82,6 +85,9 @@
 		B65F05B825B0A28D008F0B2B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B65F05BF25B0A5E1008F0B2B /* ShowsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsService.swift; sourceTree = "<group>"; };
 		B65F05C425B0A8A0008F0B2B /* ShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsModel.swift; sourceTree = "<group>"; };
+		B65F05CA25B0C2FB008F0B2B /* ShowsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsTableViewCell.swift; sourceTree = "<group>"; };
+		B65F05CF25B0C77F008F0B2B /* BaseCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellViewModel.swift; sourceTree = "<group>"; };
+		B65F05D425B0CAA8008F0B2B /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		B682EC5925ADB90C00382EA6 /* BaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
 		B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B682EC6B25ADC05700382EA6 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -237,6 +243,14 @@
 			path = ShowsApi;
 			sourceTree = "<group>";
 		};
+		B65F05C925B0C236008F0B2B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B65F05CA25B0C2FB008F0B2B /* ShowsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		B682EC2A25ADAFF600382EA6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +284,7 @@
 		B682EC2E25ADB11800382EA6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B65F05C925B0C236008F0B2B /* Cells */,
 				B65A320C25AE58CD00634427 /* Main.storyboard */,
 				B65A321125AE5B4000634427 /* HomeViewController.swift */,
 				B65F05B825B0A28D008F0B2B /* HomeViewModel.swift */,
@@ -284,6 +299,7 @@
 				B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */,
 				B682EC7025ADC68700382EA6 /* ApiConfig.swift */,
 				B682EC8825ADD5D100382EA6 /* BaseViewController.swift */,
+				B65F05CF25B0C77F008F0B2B /* BaseCellViewModel.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -292,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				B682EC7B25ADCC6500382EA6 /* String+Extensions.swift */,
+				B65F05D425B0CAA8008F0B2B /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -544,10 +561,13 @@
 				B65F05A325B08D9F008F0B2B /* Enums.swift in Sources */,
 				B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */,
 				B682EC7C25ADCC6500382EA6 /* String+Extensions.swift in Sources */,
+				B65F05D025B0C77F008F0B2B /* BaseCellViewModel.swift in Sources */,
 				B65F05C025B0A5E1008F0B2B /* ShowsService.swift in Sources */,
 				B618856E25ACBCAD0076CBC9 /* AppDelegate.swift in Sources */,
 				B682EC7625ADCBF800382EA6 /* LoginModel.swift in Sources */,
 				B682EC7125ADC68700382EA6 /* ApiConfig.swift in Sources */,
+				B65F05CB25B0C2FB008F0B2B /* ShowsTableViewCell.swift in Sources */,
+				B65F05D525B0CAA8008F0B2B /* UITableView+Extensions.swift in Sources */,
 				B682EC8425ADD34A00382EA6 /* LoginViewModel.swift in Sources */,
 				B65F05C525B0A8A0008F0B2B /* ShowsModel.swift in Sources */,
 				B618857025ACBCAD0076CBC9 /* SceneDelegate.swift in Sources */,
