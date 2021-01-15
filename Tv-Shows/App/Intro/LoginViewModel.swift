@@ -9,8 +9,8 @@ import Foundation
 
 class LoginViewModel: BaseViewModel {
     
-    init(with data: BaseModel?, apiService: LoginService?) {
-        super.init(with: data, apiService: apiService)
+    init(with apiService: LoginService?) {
+        super.init(with: apiService)
     }
     
     public func validateEmailAndPassword(email: String, password: String) -> Bool {

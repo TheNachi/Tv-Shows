@@ -26,7 +26,7 @@ class ShowsDetailViewController: BaseViewController {
         self.showsEpisodesTableView.dataSource = self
         self.showsEpisodesTableView.addPullToRefresh(action: #selector(reload))
         let showsApi = ShowsService()
-        self.viewModel = ShowsDetailViewModel(with: nil, apiService: showsApi)
+        self.viewModel = ShowsDetailViewModel(with: showsApi)
         self.bindViewModel(with: viewModel)
     }
     
@@ -50,6 +50,7 @@ class ShowsDetailViewController: BaseViewController {
             self.showsImageview.kf.setImage(with: url)
         }
         self.showsDescriptionLabel.text = vModel.getShowsDescription()
+        self.showsImageview.blur()
     }
     
     @objc func reload() {

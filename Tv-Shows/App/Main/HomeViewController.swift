@@ -19,7 +19,7 @@ class HomeViewController: BaseViewController {
         self.showsTableView.dataSource = self
         self.showsTableView.tableFooterView = UIView()
         let showsApi = ShowsService()
-        self.viewModel = HomeViewModel(with: nil, apiService: showsApi)
+        self.viewModel = HomeViewModel(with: showsApi)
         self.bindViewModel(with: viewModel)
         self.view.bringSubviewToFront(activityIndicator)
     }

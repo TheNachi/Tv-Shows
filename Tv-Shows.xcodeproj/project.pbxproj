@@ -35,6 +35,7 @@
 		B65F05F625B1C7F2008F0B2B /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05F525B1C7F2008F0B2B /* Int+Extensions.swift */; };
 		B65F05FB25B1DAA4008F0B2B /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05FA25B1DAA4008F0B2B /* Color+Extensions.swift */; };
 		B65F060725B1E8D4008F0B2B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B65F060625B1E8D4008F0B2B /* .swiftlint.yml */; };
+		B65F061925B1FB43008F0B2B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F061825B1FB43008F0B2B /* UIImageView+Extension.swift */; };
 		B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC5925ADB90C00382EA6 /* BaseApiService.swift */; };
 		B682EC6725ADBCC600382EA6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */; };
 		B682EC6C25ADC05700382EA6 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6B25ADC05700382EA6 /* LoginService.swift */; };
@@ -100,6 +101,7 @@
 		B65F05F525B1C7F2008F0B2B /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		B65F05FA25B1DAA4008F0B2B /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		B65F060625B1E8D4008F0B2B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B65F061825B1FB43008F0B2B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B682EC5925ADB90C00382EA6 /* BaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
 		B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B682EC6B25ADC05700382EA6 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				B65F05D425B0CAA8008F0B2B /* UITableView+Extensions.swift */,
 				B65F05F525B1C7F2008F0B2B /* Int+Extensions.swift */,
 				B65F05FA25B1DAA4008F0B2B /* Color+Extensions.swift */,
+				B65F061825B1FB43008F0B2B /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */,
 				B682EC7C25ADCC6500382EA6 /* String+Extensions.swift in Sources */,
 				B65F05D025B0C77F008F0B2B /* BaseCellViewModel.swift in Sources */,
+				B65F061925B1FB43008F0B2B /* UIImageView+Extension.swift in Sources */,
 				B65F05E425B193C2008F0B2B /* ShowsDetailViewController.swift in Sources */,
 				B65F05C025B0A5E1008F0B2B /* ShowsService.swift in Sources */,
 				B618856E25ACBCAD0076CBC9 /* AppDelegate.swift in Sources */,
