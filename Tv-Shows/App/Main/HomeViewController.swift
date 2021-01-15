@@ -54,6 +54,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let showDetailsVC = StaticBoards.main.instantiateViewController(identifier: VCIDS.showsDetailVC.rawValue) as? ShowsDetailViewController,
+              let vModel = self.viewModel else { return }
+        showDetailsVC.showsID = vModel.getShowsId(index: indexPath.row)
+        self.present(showDetailsVC, animated: true, completion: nil)
+    }
 }
 
 

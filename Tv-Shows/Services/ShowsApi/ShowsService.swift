@@ -38,9 +38,57 @@ class ShowsService: BaseApiService {
             }
         }
     }
+    
+    public func getShowsDetail(with showID: String, showsDetailDelegate: ShowsDetailDelegate) {
+        let url = "\(BASEURL)shows/\(showID)"
+        let request = Alamofire.request(url,
+                                        method: .get,
+                                        encoding: JSONEncoding.default,
+                                        headers: self.header)
+        request.validate()
+        request.responseString { (responseData) in
+            guard let dataString = responseData.result.value else {
+                showsDetailDelegate.onFail()
+                return
+            }
+            
+            if responseData.response?.statusCode == 200 {
+                let response = ShowsDetailDataModel(json: dataString)
+                showsDetailDelegate.onGetShowsDetail(response: response)
+            } else {
+                showsDetailDelegate.onFail()
+            }
+        }
+    }
+    
+    public func getShowsEpisodes(with showID: String, showsDetailDelegate: ShowsDetailDelegate) {
+        let url = "\(BASEURL)shows/\(showID)/episdodes"
+        let request = Alamofire.request(url,
+                                        method: .get,
+                                        encoding: JSONEncoding.default,
+                                        headers: self.header)
+        request.validate()
+        request.responseString { (responseData) in
+            guard let dataString = responseData.result.value else {
+                showsDetailDelegate.onFail()
+                return
+            }
+            
+            if responseData.response?.statusCode == 200 {
+                let response = ShowsDetailDataModel(json: dataString)
+                showsDetailDelegate.onGetShowsDetail(response: response)
+            } else {
+                showsDetailDelegate.onFail()
+            }
+        }
+    }
 }
 
 
 protocol ShowsDelegate: DataDelegate {
     func onGetShows(response: ShowsDataModel)
+}
+
+protocol ShowsDetailDelegate: DataDelegate {
+    func onGetShowsDetail(response: ShowsDetailDataModel)
 }

@@ -36,5 +36,9 @@ class HomeViewModel: BaseViewModel {
     func getShowsTableCellViewModel(index: Int) -> ShowsTableVCViewModel {
         return ShowsTableVCViewModel(with: self.getSingleShow(index: index), index: index)
     }
+    
+    func getShowsId(index: Int) -> String {
+        return shows[index]._id
+    }
 }
 

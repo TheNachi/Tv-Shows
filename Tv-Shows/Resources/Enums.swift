@@ -15,8 +15,13 @@ enum StoryBoardNames: String {
 enum VCIDS: String {
     case loginVC
     case homeVC
+    case showsDetailVC
 }
 
 enum CellIds: String {
     case showsTableVC
+}
+
+enum SegueIdentifiers: String {
+    case goToShowDetails
 }

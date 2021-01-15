@@ -15,7 +15,7 @@ class ShowsTableViewCell: UITableViewCell {
     func bindVM(with viewModel: BaseCellViewModel?) {
         guard let showsCellModel = viewModel as? ShowsTableVCViewModel else { return }
         self.showsTitleLabel.text = showsCellModel.title
-        if let url = URL(string: "https://api.infinum.academy/api/shows\(showsCellModel.url)") {
+        if let url = URL(string: "https://api.infinum.academy\(showsCellModel.url)") {
             self.showsImageView.kf.setImage(with: url)
         }
     }
