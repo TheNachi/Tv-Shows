@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class ShowsService: BaseApiService {
-    private let BASEURL : String = ApiConfig.baseURL
+    private let BASEURL: String = ApiConfig.baseURL
     private var header: HTTPHeaders
     
     init() {
@@ -61,8 +61,8 @@ class ShowsService: BaseApiService {
         }
     }
     
-    public func getShowsEpisodes(with showID: String, showsDetailDelegate: ShowsDetailDelegate) {
-        let url = "\(BASEURL)shows/\(showID)/episdodes"
+    public func getShowsEpisodes(with showID: String, showsEpisodesDelegate: ShowsEpisodesDelegate) {
+        let url = "\(BASEURL)shows/\(showID)/episodes"
         let request = Alamofire.request(url,
                                         method: .get,
                                         encoding: JSONEncoding.default,
@@ -70,20 +70,19 @@ class ShowsService: BaseApiService {
         request.validate()
         request.responseString { (responseData) in
             guard let dataString = responseData.result.value else {
-                showsDetailDelegate.onFail()
+                showsEpisodesDelegate.onFail()
                 return
             }
             
             if responseData.response?.statusCode == 200 {
-                let response = ShowsDetailDataModel(json: dataString)
-                showsDetailDelegate.onGetShowsDetail(response: response)
+                let response = ShowsEpisodesDataModel(json: dataString)
+                showsEpisodesDelegate.onGetShowsEpisodes(response: response)
             } else {
-                showsDetailDelegate.onFail()
+                showsEpisodesDelegate.onFail()
             }
         }
     }
 }
-
 
 protocol ShowsDelegate: DataDelegate {
     func onGetShows(response: ShowsDataModel)
@@ -91,4 +90,8 @@ protocol ShowsDelegate: DataDelegate {
 
 protocol ShowsDetailDelegate: DataDelegate {
     func onGetShowsDetail(response: ShowsDetailDataModel)
+}
+
+protocol ShowsEpisodesDelegate: DataDelegate {
+    func onGetShowsEpisodes(response: ShowsEpisodesDataModel)
 }

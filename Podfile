@@ -4,6 +4,9 @@ platform :ios, '13.0'
 target 'Tv-Shows' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
+  # ignore all warnings from all dependencies
+  inhibit_all_warnings!
 
   # Pods for Tv-Shows
   pod 'Alamofire', '4.9.0'

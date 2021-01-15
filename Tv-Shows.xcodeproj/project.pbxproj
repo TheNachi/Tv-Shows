@@ -31,6 +31,10 @@
 		B65F05D525B0CAA8008F0B2B /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05D425B0CAA8008F0B2B /* UITableView+Extensions.swift */; };
 		B65F05E425B193C2008F0B2B /* ShowsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05E325B193C2008F0B2B /* ShowsDetailViewController.swift */; };
 		B65F05E925B197F4008F0B2B /* ShowsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05E825B197F4008F0B2B /* ShowsDetailViewModel.swift */; };
+		B65F05F125B1C085008F0B2B /* ShowsEpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05F025B1C085008F0B2B /* ShowsEpisodesTableViewCell.swift */; };
+		B65F05F625B1C7F2008F0B2B /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05F525B1C7F2008F0B2B /* Int+Extensions.swift */; };
+		B65F05FB25B1DAA4008F0B2B /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05FA25B1DAA4008F0B2B /* Color+Extensions.swift */; };
+		B65F060725B1E8D4008F0B2B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B65F060625B1E8D4008F0B2B /* .swiftlint.yml */; };
 		B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC5925ADB90C00382EA6 /* BaseApiService.swift */; };
 		B682EC6725ADBCC600382EA6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */; };
 		B682EC6C25ADC05700382EA6 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6B25ADC05700382EA6 /* LoginService.swift */; };
@@ -92,6 +96,10 @@
 		B65F05D425B0CAA8008F0B2B /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		B65F05E325B193C2008F0B2B /* ShowsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsDetailViewController.swift; sourceTree = "<group>"; };
 		B65F05E825B197F4008F0B2B /* ShowsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsDetailViewModel.swift; sourceTree = "<group>"; };
+		B65F05F025B1C085008F0B2B /* ShowsEpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsEpisodesTableViewCell.swift; sourceTree = "<group>"; };
+		B65F05F525B1C7F2008F0B2B /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		B65F05FA25B1DAA4008F0B2B /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		B65F060625B1E8D4008F0B2B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B682EC5925ADB90C00382EA6 /* BaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
 		B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B682EC6B25ADC05700382EA6 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -159,6 +167,7 @@
 		B618856125ACBCAD0076CBC9 = {
 			isa = PBXGroup;
 			children = (
+				B65F060625B1E8D4008F0B2B /* .swiftlint.yml */,
 				B618856C25ACBCAD0076CBC9 /* Tv-Shows */,
 				B618858325ACBCAE0076CBC9 /* Tv-ShowsTests */,
 				B618858E25ACBCAE0076CBC9 /* Tv-ShowsUITests */,
@@ -252,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				B65F05CA25B0C2FB008F0B2B /* ShowsTableViewCell.swift */,
+				B65F05F025B1C085008F0B2B /* ShowsEpisodesTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -315,6 +325,8 @@
 			children = (
 				B682EC7B25ADCC6500382EA6 /* String+Extensions.swift */,
 				B65F05D425B0CAA8008F0B2B /* UITableView+Extensions.swift */,
+				B65F05F525B1C7F2008F0B2B /* Int+Extensions.swift */,
+				B65F05FA25B1DAA4008F0B2B /* Color+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +343,7 @@
 				B618856725ACBCAD0076CBC9 /* Frameworks */,
 				B618856825ACBCAD0076CBC9 /* Resources */,
 				0D4A3C388C09782299E4B988 /* [CP] Embed Pods Frameworks */,
+				B65F060225B1E80D008F0B2B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -427,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65F060725B1E8D4008F0B2B /* .swiftlint.yml in Resources */,
 				B618857A25ACBCAE0076CBC9 /* LaunchScreen.storyboard in Resources */,
 				B618857725ACBCAE0076CBC9 /* Assets.xcassets in Resources */,
 				B618857525ACBCAD0076CBC9 /* Intro.storyboard in Resources */,
@@ -529,6 +543,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tv-Shows-Tv-ShowsUITests/Pods-Tv-Shows-Tv-ShowsUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B65F060225B1E80D008F0B2B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		C91377D33738A92387D539F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -562,8 +593,10 @@
 				B618857225ACBCAD0076CBC9 /* LoginViewController.swift in Sources */,
 				B682EC6C25ADC05700382EA6 /* LoginService.swift in Sources */,
 				B65F05B925B0A28D008F0B2B /* HomeViewModel.swift in Sources */,
+				B65F05F125B1C085008F0B2B /* ShowsEpisodesTableViewCell.swift in Sources */,
 				B682EC8925ADD5D100382EA6 /* BaseViewController.swift in Sources */,
 				B682EC6725ADBCC600382EA6 /* BaseViewModel.swift in Sources */,
+				B65F05FB25B1DAA4008F0B2B /* Color+Extensions.swift in Sources */,
 				B65F05A325B08D9F008F0B2B /* Enums.swift in Sources */,
 				B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */,
 				B682EC7C25ADCC6500382EA6 /* String+Extensions.swift in Sources */,
@@ -571,6 +604,7 @@
 				B65F05E425B193C2008F0B2B /* ShowsDetailViewController.swift in Sources */,
 				B65F05C025B0A5E1008F0B2B /* ShowsService.swift in Sources */,
 				B618856E25ACBCAD0076CBC9 /* AppDelegate.swift in Sources */,
+				B65F05F625B1C7F2008F0B2B /* Int+Extensions.swift in Sources */,
 				B682EC7625ADCBF800382EA6 /* LoginModel.swift in Sources */,
 				B682EC7125ADC68700382EA6 /* ApiConfig.swift in Sources */,
 				B65F05CB25B0C2FB008F0B2B /* ShowsTableViewCell.swift in Sources */,

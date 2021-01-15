@@ -41,4 +41,3 @@ class HomeViewModel: BaseViewModel {
         return shows[index]._id
     }
 }
-

@@ -5,6 +5,8 @@
 //  Created by Munachimso Ugorji on 14/01/2021.
 //
 
+// swiftlint:disable identifier_name
+
 import Foundation
 
 class ShowsDataModel: BaseModel {
@@ -15,7 +17,7 @@ class ShowsDetailDataModel: BaseModel {
     var data: ShowsDetailModel = ShowsDetailModel()
 }
 
-class ShowsEpisodeDataModel: BaseModel {
+class ShowsEpisodesDataModel: BaseModel {
     var data: [ShowsEpisodesModel] = []
 }
 
@@ -40,7 +42,7 @@ class ShowsEpisodesModel: BaseModel {
     var title: String = String.empty
     var _description: String = String.empty
     var imageUrl: String = String.empty
-    var episdoeNumber: String = String.empty
-    var Season: String = String.empty
+    var episodeNumber: String = String.empty
+    var season: String = String.empty
     
 }

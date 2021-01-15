@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     @IBOutlet weak var showsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var viewModel: HomeViewModel?
     
@@ -20,16 +21,20 @@ class HomeViewController: BaseViewController {
         let showsApi = ShowsService()
         self.viewModel = HomeViewModel(with: nil, apiService: showsApi)
         self.bindViewModel(with: viewModel)
+        self.view.bringSubviewToFront(activityIndicator)
     }
     
     override func bindViewModel(with viewModel: BaseViewModel?) {
         super.bindViewModel(with: viewModel)
         guard isViewLoaded, let vModel = viewModel as? HomeViewModel else { return }
+        self.activityIndicator.startAnimating()
         vModel.getShows(delegate: self)
     }
     
     @IBAction func logOutPressed(_ sender: UIButton) {
-        
+        AccountManager.shared.logOut()
+        guard let loginVC = StaticBoards.intro.instantiateViewController(identifier: VCIDS.loginVC.rawValue) as? LoginViewController else { return }
+        self.present(loginVC, animated: true, completion: nil)
     }
 }
 
@@ -63,20 +68,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
 extension HomeViewController: ShowsDelegate {
     func onGetShows(response: ShowsDataModel) {
         guard let vModel = self.viewModel else { return }
         vModel.updateShows(response: response)
         self.reloadTableView()
+        self.activityIndicator.stopAnimating()
     }
     
     func onFail() {
-        
+        guard let vModel = self.viewModel else { return }
+        self.activityIndicator.stopAnimating()
+        self.correctDisplayAlert(title: "Error", message: "There seems to be a network issue, click ok, lets try again")
+        self.activityIndicator.startAnimating()
+        vModel.getShows(delegate: self)
     }
 }
 
-extension HomeViewController: HomeViewProtocol {
+extension HomeViewController: TableViewProtocol {
     func getTableCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell? {
         return tableView.createCell(with: CellIds.showsTableVC.rawValue, indexPath: indexPath)
     }
@@ -84,9 +93,4 @@ extension HomeViewController: HomeViewProtocol {
     func reloadTableView() {
         self.showsTableView.reloadData()
     }
-}
-
-protocol HomeViewProtocol {
-    func getTableCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell?
-    func reloadTableView()
 }

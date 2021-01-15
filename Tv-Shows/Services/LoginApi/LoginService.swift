@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 
 class LoginService: BaseApiService {
-    private let BASEURL : String = ApiConfig.baseURL
+    private let BASEURL: String = ApiConfig.baseURL
     private var header: HTTPHeaders
     
     init() {

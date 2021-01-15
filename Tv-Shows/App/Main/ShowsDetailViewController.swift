@@ -12,6 +12,9 @@ class ShowsDetailViewController: BaseViewController {
     @IBOutlet weak var showsTitleLabel: UILabel!
     @IBOutlet weak var showsImageview: UIImageView!
     @IBOutlet weak var showsDescriptionLabel: UILabel!
+    @IBOutlet weak var showsEpisodesCountLabel: UILabel!
+    @IBOutlet weak var showsEpisodesTableView: UITableView!
+    @IBOutlet weak var mainActivityIndicator: UIActivityIndicatorView!
     
     private var viewModel: ShowsDetailViewModel?
     
@@ -19,6 +22,9 @@ class ShowsDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showsEpisodesTableView.delegate = self
+        self.showsEpisodesTableView.dataSource = self
+        self.showsEpisodesTableView.addPullToRefresh(action: #selector(reload))
         let showsApi = ShowsService()
         self.viewModel = ShowsDetailViewModel(with: nil, apiService: showsApi)
         self.bindViewModel(with: viewModel)
@@ -27,7 +33,10 @@ class ShowsDetailViewController: BaseViewController {
     override func bindViewModel(with viewModel: BaseViewModel?) {
         super.bindViewModel(with: viewModel)
         guard isViewLoaded, let vModel = viewModel as? ShowsDetailViewModel else { return }
+        self.mainActivityIndicator.startAnimating()
         vModel.getShowsDetail(with: self.showsID, delegate: self)
+        self.reload()
+        
     }
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
@@ -42,18 +51,61 @@ class ShowsDetailViewController: BaseViewController {
         }
         self.showsDescriptionLabel.text = vModel.getShowsDescription()
     }
+    
+    @objc func reload() {
+        guard let vModel = viewModel else { return }
+        vModel.getShowsEpisodes(with: self.showsID, delegate: self)
+    }
+}
+
+extension ShowsDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let vModel = self.viewModel else { return 0 }
+        return vModel.getEpisodeCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = self.getTableCell(for: tableView, indexPath: indexPath),
+              let vModel = self.viewModel else { return UITableViewCell() }
+        
+        if let showEpisodesCell = cell as? ShowsEpisodesTableViewCell {
+            showEpisodesCell.bindVM(with: vModel.getEpisodesCellViewMOdel(index: indexPath.row))
+            return showEpisodesCell
+        }
+        
+        return cell
+    }
 }
 
 extension ShowsDetailViewController: ShowsDetailDelegate {
     func onGetShowsDetail(response: ShowsDetailDataModel) {
         guard let vModel = self.viewModel else { return }
         vModel.setShowsDetail(with: response.data)
+        self.mainActivityIndicator.stopAnimating()
         self.setUpView()
     }
     
     func onFail() {
         
     }
+}
+
+extension ShowsDetailViewController: ShowsEpisodesDelegate {
+    func onGetShowsEpisodes(response: ShowsEpisodesDataModel) {
+        guard let vModel = self.viewModel else { return }
+        vModel.updateShowsEpisodes(response: response)
+        self.showsEpisodesCountLabel.text = vModel.getEpisodeCount().toString()
+        self.reloadTableView()
+        self.showsEpisodesTableView.stopRefresh()
+    }
+}
+
+extension ShowsDetailViewController: TableViewProtocol {
+    func getTableCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell? {
+        return tableView.createCell(with: CellIds.showsEpisodesTableCell.rawValue, indexPath: indexPath)
+    }
     
-    
+    func reloadTableView() {
+        self.showsEpisodesTableView.reloadData()
+    }
 }

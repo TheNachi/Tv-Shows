@@ -16,6 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wfq-52-xOj">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pl9-1K-KGh">
                                 <rect key="frame" x="10" y="59" width="84" height="40"/>
                                 <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="30"/>
@@ -79,7 +83,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Lop-yE-67b" firstAttribute="top" secondItem="pl9-1K-KGh" secondAttribute="bottom" constant="25" id="6xy-jV-lz3"/>
+                            <constraint firstItem="wfq-52-xOj" firstAttribute="centerY" secondItem="7z0-kC-UMl" secondAttribute="centerY" id="GNl-Xd-mkV"/>
                             <constraint firstItem="pl9-1K-KGh" firstAttribute="top" secondItem="7z0-kC-UMl" secondAttribute="top" constant="15" id="LSA-do-P1t"/>
+                            <constraint firstItem="wfq-52-xOj" firstAttribute="centerX" secondItem="7z0-kC-UMl" secondAttribute="centerX" id="Vda-cf-5wc"/>
                             <constraint firstItem="pl9-1K-KGh" firstAttribute="leading" secondItem="7z0-kC-UMl" secondAttribute="leading" constant="10" id="YyF-XG-WM4"/>
                             <constraint firstItem="Lop-yE-67b" firstAttribute="leading" secondItem="7z0-kC-UMl" secondAttribute="leading" constant="10" id="Z7B-U0-F5b"/>
                             <constraint firstItem="7z0-kC-UMl" firstAttribute="trailing" secondItem="OLc-rV-xls" secondAttribute="trailing" constant="20" id="nYb-i2-cvL"/>
@@ -89,8 +95,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="wfq-52-xOj" id="JE5-AN-YZm"/>
                         <outlet property="showsTableView" destination="Lop-yE-67b" id="OK0-ig-sNt"/>
-                        <segue destination="wPJ-xf-CKS" kind="show" identifier="goToShowDetails" id="6rK-Dy-sIb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0N-Hx-rnp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -123,6 +129,47 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pg3-1Y-23e">
                                 <rect key="frame" x="10" y="529" width="394" height="367"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showsEpisodesTableCell" rowHeight="66" id="8ky-4a-CPM" customClass="ShowsEpisodesTableViewCell" customModule="Tv_Shows" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ky-4a-CPM" id="UTf-El-vSJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="363" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emJ-1b-BuP">
+                                                    <rect key="frame" x="0.0" y="22" width="65" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="VPO-qw-6KF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="16"/>
+                                                    <color key="textColor" red="0.98039215686274506" green="0.50588235294117645" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7v-AG-XPg">
+                                                    <rect key="frame" x="81" y="22" width="264" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="W53-Jm-Twh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="z7v-AG-XPg" firstAttribute="centerY" secondItem="emJ-1b-BuP" secondAttribute="centerY" id="40J-NG-Sig"/>
+                                                <constraint firstItem="emJ-1b-BuP" firstAttribute="leading" secondItem="UTf-El-vSJ" secondAttribute="leading" id="Qdb-c3-NUC"/>
+                                                <constraint firstAttribute="trailing" secondItem="z7v-AG-XPg" secondAttribute="trailing" constant="18" id="T7q-FH-Aok"/>
+                                                <constraint firstItem="z7v-AG-XPg" firstAttribute="leading" secondItem="emJ-1b-BuP" secondAttribute="trailing" constant="16" id="alQ-fl-lhu"/>
+                                                <constraint firstItem="emJ-1b-BuP" firstAttribute="centerY" secondItem="UTf-El-vSJ" secondAttribute="centerY" id="orp-uS-VQH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="episodeNumberLabel" destination="emJ-1b-BuP" id="AgH-rB-d5M"/>
+                                            <outlet property="episodeTitleLabel" destination="z7v-AG-XPg" id="Fyv-8n-ade"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lde-ys-cnz">
                                 <rect key="frame" x="10" y="40" width="40" height="40"/>
@@ -141,12 +188,24 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEe-IB-F0e">
-                                <rect key="frame" x="87" y="468" width="42" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEe-IB-F0e">
+                                <rect key="frame" x="87" y="480" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pS6-FU-s8r">
+                                <rect key="frame" x="324" y="786" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="5i6-EU-kal"/>
+                                    <constraint firstAttribute="width" constant="70" id="mTi-eG-akp"/>
+                                </constraints>
+                                <state key="normal" image="ic-fab-button"/>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="T0V-oE-ZCs">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeK-dj-tif">
                                 <rect key="frame" x="10" y="340" width="58.5" height="33"/>
                                 <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="25"/>
@@ -159,17 +218,21 @@
                         <constraints>
                             <constraint firstItem="EC9-SC-c4Q" firstAttribute="trailing" secondItem="oxS-CS-acz" secondAttribute="trailing" constant="10" id="1J0-Wq-VNE"/>
                             <constraint firstItem="NeK-dj-tif" firstAttribute="top" secondItem="33g-70-TBU" secondAttribute="bottom" constant="20" id="2Ef-z3-b8X"/>
+                            <constraint firstAttribute="bottom" secondItem="pS6-FU-s8r" secondAttribute="bottom" constant="40" id="5I1-f3-oql"/>
                             <constraint firstItem="33g-70-TBU" firstAttribute="leading" secondItem="EC9-SC-c4Q" secondAttribute="leading" id="70y-DT-FaH"/>
                             <constraint firstItem="lde-ys-cnz" firstAttribute="leading" secondItem="33g-70-TBU" secondAttribute="leading" constant="10" id="Hme-m8-LgC"/>
                             <constraint firstItem="DBJ-NM-WTV" firstAttribute="leading" secondItem="oxS-CS-acz" secondAttribute="leading" id="LPW-bh-cGe"/>
                             <constraint firstItem="oxS-CS-acz" firstAttribute="top" secondItem="NeK-dj-tif" secondAttribute="bottom" constant="-10" id="MEb-co-5Ku"/>
                             <constraint firstItem="pg3-1Y-23e" firstAttribute="top" secondItem="DBJ-NM-WTV" secondAttribute="bottom" constant="37" id="QCr-dY-sM5"/>
                             <constraint firstItem="NeK-dj-tif" firstAttribute="leading" secondItem="lde-ys-cnz" secondAttribute="leading" id="RHa-dK-9mf"/>
+                            <constraint firstItem="T0V-oE-ZCs" firstAttribute="centerX" secondItem="EC9-SC-c4Q" secondAttribute="centerX" id="Tdi-sW-Gt5"/>
                             <constraint firstItem="lde-ys-cnz" firstAttribute="top" secondItem="33g-70-TBU" secondAttribute="top" constant="40" id="WF5-Jq-igN"/>
                             <constraint firstItem="pg3-1Y-23e" firstAttribute="bottom" secondItem="EC9-SC-c4Q" secondAttribute="bottom" constant="34" id="XGu-Th-7HS"/>
                             <constraint firstItem="jEe-IB-F0e" firstAttribute="centerY" secondItem="DBJ-NM-WTV" secondAttribute="centerY" id="ZgM-hb-LoG"/>
+                            <constraint firstItem="EC9-SC-c4Q" firstAttribute="trailing" secondItem="pS6-FU-s8r" secondAttribute="trailing" constant="20" id="bF4-hj-LYa"/>
                             <constraint firstItem="oxS-CS-acz" firstAttribute="leading" secondItem="NeK-dj-tif" secondAttribute="leading" id="eod-aQ-te3"/>
                             <constraint firstItem="EC9-SC-c4Q" firstAttribute="trailing" secondItem="33g-70-TBU" secondAttribute="trailing" id="gL8-Mn-bg3"/>
+                            <constraint firstItem="T0V-oE-ZCs" firstAttribute="centerY" secondItem="EC9-SC-c4Q" secondAttribute="centerY" id="jjD-lg-9nT"/>
                             <constraint firstAttribute="top" secondItem="33g-70-TBU" secondAttribute="top" id="laY-VY-M1q"/>
                             <constraint firstItem="pg3-1Y-23e" firstAttribute="trailing" secondItem="oxS-CS-acz" secondAttribute="trailing" id="mxW-gp-JUh"/>
                             <constraint firstItem="pg3-1Y-23e" firstAttribute="leading" secondItem="oxS-CS-acz" secondAttribute="leading" id="nwc-9u-w2K"/>
@@ -179,7 +242,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="8U9-FS-zTt"/>
                     <connections>
+                        <outlet property="mainActivityIndicator" destination="T0V-oE-ZCs" id="pdZ-pJ-AP2"/>
                         <outlet property="showsDescriptionLabel" destination="oxS-CS-acz" id="bkb-Ux-dWR"/>
+                        <outlet property="showsEpisodesCountLabel" destination="jEe-IB-F0e" id="rzJ-3b-mHB"/>
+                        <outlet property="showsEpisodesTableView" destination="pg3-1Y-23e" id="6Dq-vn-4JG"/>
                         <outlet property="showsImageview" destination="33g-70-TBU" id="AtL-8z-h0y"/>
                         <outlet property="showsTitleLabel" destination="NeK-dj-tif" id="Mu0-jX-dB1"/>
                     </connections>
@@ -190,6 +256,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic-fab-button" width="68" height="74"/>
         <image name="ic-logout" width="40" height="40"/>
         <image name="ic-navigate-back" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">

@@ -20,6 +20,7 @@ enum VCIDS: String {
 
 enum CellIds: String {
     case showsTableVC
+    case showsEpisodesTableCell
 }
 
 enum SegueIdentifiers: String {

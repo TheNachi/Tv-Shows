@@ -20,9 +20,7 @@ class BaseViewController: UIViewController {
         self.baseViewModel = viewModel
     }
     
-    func correctDisplayAlert(title: String?, message: String?,
-        actions: [UIAlertAction] = [],
-        preferredStyle: UIAlertController.Style = .alert) {
+    func correctDisplayAlert(title: String?, message: String?, actions: [UIAlertAction] = [], preferredStyle: UIAlertController.Style = .alert) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         if actions.isEmpty {
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -34,4 +32,9 @@ class BaseViewController: UIViewController {
         }
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+protocol TableViewProtocol {
+    func getTableCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell?
+    func reloadTableView()
 }

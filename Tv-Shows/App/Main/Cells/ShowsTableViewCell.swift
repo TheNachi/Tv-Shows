@@ -22,9 +22,8 @@ class ShowsTableViewCell: UITableViewCell {
 
 }
 
-
 class ShowsTableVCViewModel: BaseCellViewModel {
-    let title : String
+    let title: String
     let url: String
     
     init(with cellModel: ShowsModel, index: Int) {

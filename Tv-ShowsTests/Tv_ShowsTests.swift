@@ -4,6 +4,7 @@
 //
 //  Created by Munachimso Ugorji on 11/01/2021.
 //
+// swiftlint:disable type_name
 
 import XCTest
 @testable import Tv_Shows
