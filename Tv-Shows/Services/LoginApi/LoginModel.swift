@@ -12,7 +12,7 @@ class LoginModel: BaseModel {
     var password: String = String.empty
 }
 
-class DataModel: BaseModel {
+class LoginDataModel: BaseModel {
     var data: Token = Token()
 }
 

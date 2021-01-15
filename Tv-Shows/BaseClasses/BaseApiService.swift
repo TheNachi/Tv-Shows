@@ -1,7 +1,6 @@
 import Foundation
 import Alamofire
 
-
 class BaseApiService {
     weak var delegate: DataDelegate?
     private var requests: [DataRequest] = []
@@ -35,4 +34,3 @@ class BaseApiService {
 protocol DataDelegate: class {
     func onFail()
 }
-

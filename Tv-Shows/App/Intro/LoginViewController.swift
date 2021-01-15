@@ -14,6 +14,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var passwordSecureImage: UIButton!
     @IBOutlet weak var rememberMeButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var logInButton: UIButton!
     
     private var viewModel: LoginViewModel?
     private var rememberMeToggle: Bool = false
@@ -27,6 +28,11 @@ class LoginViewController: BaseViewController {
     
     override func bindViewModel(with viewModel: BaseViewModel?) {
         super.bindViewModel(with: viewModel)
+        guard isViewLoaded, let vModel = viewModel as? LoginViewModel else { return }
+        self.addTargetToTextField()
+        self.emailTextField.text = vModel.getSavedEmail()
+        self.passwordTextField.text = vModel.getSavedPassword()
+        self.textFieldEmptyCheck(sender: UITextField())
     }
     
     @IBAction func toggleSecurePassword(_ sender: UIButton) {
@@ -40,7 +46,6 @@ class LoginViewController: BaseViewController {
         self.rememberMeButton.setImage(UIImage(named: imageName), for: .normal)
         self.rememberMeToggle.toggle()
     }
-    
     
     @IBAction func loginPressed(_ sender: UIButton) {
         guard let email = self.emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
@@ -62,17 +67,44 @@ class LoginViewController: BaseViewController {
         }
         
     }
+    
+    @objc func textFieldEmptyCheck(sender: UITextField) {
+        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
+        guard let email = self.emailTextField.text, !email.isEmpty,
+              let password = self.passwordTextField.text, !password.isEmpty
+        else {
+            self.logInButton.backgroundColor = UIColor.buttonUnselectedColor
+            self.logInButton.isUserInteractionEnabled = false
+            return
+        }
+        self.logInButton.backgroundColor = UIColor.buttonSelectedColor
+        self.logInButton.isUserInteractionEnabled = true
+    }
+    
+    func addTargetToTextField() {
+        self.logInButton.backgroundColor = UIColor.buttonUnselectedColor
+        self.logInButton.isUserInteractionEnabled = false
+        self.emailTextField.addTarget(self, action: #selector(textFieldEmptyCheck), for: .editingChanged)
+        self.passwordTextField.addTarget(self, action: #selector(textFieldEmptyCheck), for: .editingChanged)
+    }
 }
 
 extension LoginViewController: LoginDelegate {
     func onFail() {
         self.activityIndicator.stopAnimating()
-        self.correctDisplayAlert(title: "Error", message: "There's a network error, could you wait a few seconds and try again")
+        self.correctDisplayAlert(title: "Error", message: "Ensure you inputed the correct email and password combination and try again")
     }
     
-    func onLoginSuccessful(response: DataModel) {
+    func onLoginSuccessful(response: LoginDataModel) {
+        if rememberMeToggle {
+            guard let email = self.emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+                  let password = self.passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+                  let vModel = self.viewModel else { return }
+            vModel.rememberMe(email: email, password: password)
+        }
         AccountManager.shared.setToken(with: response)
         self.activityIndicator.stopAnimating()
+        guard let homeVC = StaticBoards.main.instantiateViewController(identifier: VCIDS.homeVC.rawValue) as? HomeViewController else { return }
+        self.present(homeVC, animated: true, completion: nil)
     }
 }
-
