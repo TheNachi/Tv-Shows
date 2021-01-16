@@ -30,12 +30,8 @@ class ShowsService: BaseApiService {
                 return
             }
             
-            if responseData.response?.statusCode == 200 {
-                let response = ShowsDataModel(json: dataString)
-                showsDelegate.onGetShows(response: response)
-            } else {
-                showsDelegate.onFail()
-            }
+            let response = ShowsDataModel(json: dataString)
+            showsDelegate.onGetShows(response: response)
         }
     }
     
@@ -52,12 +48,8 @@ class ShowsService: BaseApiService {
                 return
             }
             
-            if responseData.response?.statusCode == 200 {
-                let response = ShowsDetailDataModel(json: dataString)
-                showsDetailDelegate.onGetShowsDetail(response: response)
-            } else {
-                showsDetailDelegate.onFail()
-            }
+            let response = ShowsDetailDataModel(json: dataString)
+            showsDetailDelegate.onGetShowsDetail(response: response)
         }
     }
     
@@ -74,12 +66,9 @@ class ShowsService: BaseApiService {
                 return
             }
             
-            if responseData.response?.statusCode == 200 {
-                let response = ShowsEpisodesDataModel(json: dataString)
-                showsEpisodesDelegate.onGetShowsEpisodes(response: response)
-            } else {
-                showsEpisodesDelegate.onFail()
-            }
+            let response = ShowsEpisodesDataModel(json: dataString)
+            showsEpisodesDelegate.onGetShowsEpisodes(response: response)
+
         }
     }
 }

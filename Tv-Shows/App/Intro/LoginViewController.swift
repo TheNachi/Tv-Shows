@@ -22,7 +22,7 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let loginApi = LoginService()
-        self.viewModel = LoginViewModel(with: nil, apiService: loginApi)
+        self.viewModel = LoginViewModel(with: loginApi)
         self.bindViewModel(with: viewModel)
     }
     

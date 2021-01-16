@@ -10,8 +10,8 @@ import Foundation
 class HomeViewModel: BaseViewModel {
     private var shows: [ShowsModel] = []
     
-    init(with data: BaseModel?, apiService: ShowsService?) {
-        super.init(with: data, apiService: apiService)
+    init(with apiService: ShowsService?) {
+        super.init(with: apiService)
     }
     
     public func getShows(delegate: ShowsDelegate) {
@@ -19,25 +19,25 @@ class HomeViewModel: BaseViewModel {
         apiService.getShows(showsDelegate: delegate)
     }
     
-    func updateShows(response: ShowsDataModel) {
+    public func updateShows(response: ShowsDataModel) {
         response.data.forEach { (show) in
             self.shows.append(show)
         }
     }
     
-    func getShowsCount() -> Int {
+    public func getShowsCount() -> Int {
         return self.shows.count
     }
     
-    func getSingleShow(index: Int) -> ShowsModel {
+    public func getSingleShow(index: Int) -> ShowsModel {
         return self.shows[index]
     }
     
-    func getShowsTableCellViewModel(index: Int) -> ShowsTableVCViewModel {
+    public func getShowsTableCellViewModel(index: Int) -> ShowsTableVCViewModel {
         return ShowsTableVCViewModel(with: self.getSingleShow(index: index), index: index)
     }
     
-    func getShowsId(index: Int) -> String {
+    public func getShowsId(index: Int) -> String {
         return shows[index]._id
     }
 }

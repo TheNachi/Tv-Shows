@@ -11,8 +11,8 @@ class ShowsDetailViewModel: BaseViewModel {
     private var showsDetail: ShowsDetailModel = ShowsDetailModel()
     private var showsEpisodes: [ShowsEpisodesModel] = []
     
-    init(with data: BaseModel?, apiService: ShowsService) {
-        super.init(with: data, apiService: apiService)
+    init(with apiService: ShowsService?) {
+        super.init(with: apiService)
     }
     
     public func getShowsDetail(with showsID: String, delegate: ShowsDetailDelegate) {
@@ -25,37 +25,37 @@ class ShowsDetailViewModel: BaseViewModel {
         apiService.getShowsEpisodes(with: showsID, showsEpisodesDelegate: delegate)
     }
     
-    func setShowsDetail(with showsDetail: ShowsDetailModel) {
+    public func setShowsDetail(with showsDetail: ShowsDetailModel) {
         self.showsDetail = showsDetail
     }
     
-    func getShowsTitle() -> String {
-        return self.showsDetail.title
-    }
-    
-    func getShowsImageUrl() -> String {
-        return self.showsDetail.imageUrl
-    }
-    
-    func getShowsDescription() -> String {
-        return self.showsDetail._description == String.empty ? "No description" : self.showsDetail._description
-    }
-    
-    func updateShowsEpisodes(response: ShowsEpisodesDataModel) {
+    public func updateShowsEpisodes(response: ShowsEpisodesDataModel) {
         response.data.forEach { (episode) in
             self.showsEpisodes.append(episode)
         }
     }
     
-    func getEpisodeCount() -> Int {
+    public func getShowsTitle() -> String {
+        return self.showsDetail.title
+    }
+    
+    public func getShowsImageUrl() -> String {
+        return self.showsDetail.imageUrl
+    }
+    
+    public func getShowsDescription() -> String {
+        return self.showsDetail._description == String.empty ? "No description" : self.showsDetail._description
+    }
+    
+    public func getEpisodeCount() -> Int {
         return self.showsEpisodes.count
     }
     
-    func getSingleEpisode(index: Int) -> ShowsEpisodesModel {
+    public func getSingleEpisode(index: Int) -> ShowsEpisodesModel {
         return self.showsEpisodes[index]
     }
     
-    func getEpisodesCellViewMOdel(index: Int) -> ShowsEpisodesTableVCViewModel {
+    public func getEpisodesCellViewMOdel(index: Int) -> ShowsEpisodesTableVCViewModel {
         return ShowsEpisodesTableVCViewModel(with: self.getSingleEpisode(index: index), index: index)
     }
 }

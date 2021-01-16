@@ -26,7 +26,7 @@ class ShowsDetailViewController: BaseViewController {
         self.showsEpisodesTableView.dataSource = self
         self.showsEpisodesTableView.addPullToRefresh(action: #selector(reload))
         let showsApi = ShowsService()
-        self.viewModel = ShowsDetailViewModel(with: nil, apiService: showsApi)
+        self.viewModel = ShowsDetailViewModel(with: showsApi)
         self.bindViewModel(with: viewModel)
     }
     

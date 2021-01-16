@@ -20,12 +20,8 @@ class LoginService: BaseApiService {
                 return
             }
                     
-            if responseData.response?.statusCode == 200 {
-                let response = LoginDataModel(json: dataString)
-                loginDelegate.onLoginSuccessful(response: response)
-            } else {
-                loginDelegate.onFail()
-            }
+            let response = LoginDataModel(json: dataString)
+            loginDelegate.onLoginSuccessful(response: response)
         }
         
     }
