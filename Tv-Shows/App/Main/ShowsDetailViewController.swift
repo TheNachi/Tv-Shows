@@ -64,6 +64,10 @@ extension ShowsDetailViewController: UITableViewDelegate, UITableViewDataSource 
         return vModel.getEpisodeCount()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 66
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.getTableCell(for: tableView, indexPath: indexPath),
               let vModel = self.viewModel else { return UITableViewCell() }
