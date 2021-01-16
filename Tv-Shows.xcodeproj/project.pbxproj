@@ -36,6 +36,10 @@
 		B65F05FB25B1DAA4008F0B2B /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F05FA25B1DAA4008F0B2B /* Color+Extensions.swift */; };
 		B65F060725B1E8D4008F0B2B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B65F060625B1E8D4008F0B2B /* .swiftlint.yml */; };
 		B65F061925B1FB43008F0B2B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F061825B1FB43008F0B2B /* UIImageView+Extension.swift */; };
+		B65F061E25B308D5008F0B2B /* AccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F061D25B308D5008F0B2B /* AccountManagerTests.swift */; };
+		B65F062325B30931008F0B2B /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F062225B30931008F0B2B /* LoginViewModelTests.swift */; };
+		B65F062825B30996008F0B2B /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F062725B30996008F0B2B /* HomeViewModelTests.swift */; };
+		B65F062D25B32720008F0B2B /* ShowsDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F062C25B32720008F0B2B /* ShowsDetailViewModelTests.swift */; };
 		B682EC5A25ADB90C00382EA6 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC5925ADB90C00382EA6 /* BaseApiService.swift */; };
 		B682EC6725ADBCC600382EA6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */; };
 		B682EC6C25ADC05700382EA6 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682EC6B25ADC05700382EA6 /* LoginService.swift */; };
@@ -102,6 +106,10 @@
 		B65F05FA25B1DAA4008F0B2B /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		B65F060625B1E8D4008F0B2B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B65F061825B1FB43008F0B2B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		B65F061D25B308D5008F0B2B /* AccountManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagerTests.swift; sourceTree = "<group>"; };
+		B65F062225B30931008F0B2B /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		B65F062725B30996008F0B2B /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		B65F062C25B32720008F0B2B /* ShowsDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsDetailViewModelTests.swift; sourceTree = "<group>"; };
 		B682EC5925ADB90C00382EA6 /* BaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
 		B682EC6625ADBCC600382EA6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B682EC6B25ADC05700382EA6 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -211,6 +219,10 @@
 			children = (
 				B618858425ACBCAE0076CBC9 /* Tv_ShowsTests.swift */,
 				B618858625ACBCAE0076CBC9 /* Info.plist */,
+				B65F061D25B308D5008F0B2B /* AccountManagerTests.swift */,
+				B65F062225B30931008F0B2B /* LoginViewModelTests.swift */,
+				B65F062725B30996008F0B2B /* HomeViewModelTests.swift */,
+				B65F062C25B32720008F0B2B /* ShowsDetailViewModelTests.swift */,
 			);
 			path = "Tv-ShowsTests";
 			sourceTree = "<group>";
@@ -626,7 +638,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65F062325B30931008F0B2B /* LoginViewModelTests.swift in Sources */,
 				B618858525ACBCAE0076CBC9 /* Tv_ShowsTests.swift in Sources */,
+				B65F061E25B308D5008F0B2B /* AccountManagerTests.swift in Sources */,
+				B65F062D25B32720008F0B2B /* ShowsDetailViewModelTests.swift in Sources */,
+				B65F062825B30996008F0B2B /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func handleLoggedIn(scene: UIScene?) {
+        // Checking if the app is running Unit tests
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            resetUserDefaults()
+            return
+        }
+        
         guard AccountManager.shared.isLoggedIn(),
               let homeVC = StaticBoards.main.instantiateViewController(identifier: VCIDS.homeVC.rawValue) as? HomeViewController,
               let _scene = (scene as? UIWindowScene) else { return }
@@ -60,5 +66,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    
+    private func resetUserDefaults() {
+        if let bundleIdentifier = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundleIdentifier)
+        }
     }
 }

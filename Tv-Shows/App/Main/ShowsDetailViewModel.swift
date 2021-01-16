@@ -11,7 +11,7 @@ class ShowsDetailViewModel: BaseViewModel {
     private var showsDetail: ShowsDetailModel = ShowsDetailModel()
     private var showsEpisodes: [ShowsEpisodesModel] = []
     
-    init(with apiService: ShowsService) {
+    init(with apiService: ShowsService?) {
         super.init(with: apiService)
     }
     
@@ -29,6 +29,12 @@ class ShowsDetailViewModel: BaseViewModel {
         self.showsDetail = showsDetail
     }
     
+    public func updateShowsEpisodes(response: ShowsEpisodesDataModel) {
+        response.data.forEach { (episode) in
+            self.showsEpisodes.append(episode)
+        }
+    }
+    
     public func getShowsTitle() -> String {
         return self.showsDetail.title
     }
@@ -39,12 +45,6 @@ class ShowsDetailViewModel: BaseViewModel {
     
     public func getShowsDescription() -> String {
         return self.showsDetail._description == String.empty ? "No description" : self.showsDetail._description
-    }
-    
-    public func updateShowsEpisodes(response: ShowsEpisodesDataModel) {
-        response.data.forEach { (episode) in
-            self.showsEpisodes.append(episode)
-        }
     }
     
     public func getEpisodeCount() -> Int {
