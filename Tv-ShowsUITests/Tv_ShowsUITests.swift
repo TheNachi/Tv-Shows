@@ -4,7 +4,7 @@
 //
 //  Created by Munachimso Ugorji on 11/01/2021.
 //
-
+// swiftlint:disable type_name
 import XCTest
 
 class Tv_ShowsUITests: XCTestCase {
